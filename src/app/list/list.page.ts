@@ -9,25 +9,14 @@ import { SwapiService } from '../swapi.service';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
+  public items = [];
+
   constructor(private fishSvc: SharedDataService, private swapiSvc: SwapiService) {}
 
   ngOnInit() {
     this.swapiSvc.getPlanets().subscribe(
       data => {
-        console.log(data);
+        this.items = (<any> data).results.map(x => x.name); //casting data to any allows ts to know it has results properties
       },
       
       error => console.log(error)
