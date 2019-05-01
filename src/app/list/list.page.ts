@@ -16,7 +16,7 @@ export class ListPage implements OnInit {
   ngOnInit() {
     this.swapiSvc.getPlanets().subscribe(
       data => {
-        this.items = (<any> data).results.map(x => x.name); //casting data to any allows ts to know it has results properties
+        this.items = [...this.items, ...(<any> data).results.map(x => x.name)].sort(); //casting data to any allows ts to know it has results properties (which is otherwise seen as an Object, unless told otherwise)
       },
       
       error => console.log(error)
