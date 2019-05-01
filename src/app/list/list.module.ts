@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ListPage } from './list.page';
-import { fromEventPattern } from 'rxjs';
 
 @NgModule({
   imports: [
