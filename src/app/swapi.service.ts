@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { merge, empty } from 'rxjs';
 import { expand } from 'rxjs/operators';
-import { AnyMxRecord } from 'dns';
 
 @Injectable({
   providedIn: 'root'
